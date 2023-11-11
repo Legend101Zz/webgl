@@ -1,5 +1,5 @@
 var vertexShaderText = [
-  "presion mediump float;",
+  "precision mediump float;",
   "",
   "attribute vec2 vertPosition;",
   "",
@@ -10,11 +10,11 @@ var vertexShaderText = [
 ].join("\n");
 
 var fragmentShaderText = [
-  "presion mediump float;",
+  "precision mediump float;",
   "",
   "void main()",
   "{",
-  " gl_Fragcolor = vec4(1.0,0.0,0.0,1.0);",
+  " gl_FragColor = vec4(1.0,0.0,0.0,1.0);",
   "}",
 ].join("\n");
 
@@ -32,4 +32,18 @@ var initDemo = function () {
   //
   const vertexShader = gl.createShader(gl.VERTEX_SHADER);
   const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
+
+  gl.shaderSource(vertexShader, vertexShaderText);
+  gl.shaderSource(fragmentShader, fragmentShaderText);
+
+  gl.compileShader(vertexShader);
+  if (!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)) {
+    console.error("error in vertex", gl.getShaderInfoLog(vertexShader));
+    return;
+  }
+  gl.compileShader(fragmentShader);
+  if (!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)) {
+    console.error("error in vertex", gl.getShaderInfoLog(fragmentShader));
+    return;
+  }
 };
