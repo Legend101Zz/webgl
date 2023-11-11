@@ -76,4 +76,26 @@ var initDemo = function () {
     new Float32Array(triangleVertices),
     gl.STATIC_DRAW
   );
+
+  const positionAttributeLocation = gl.getAttribLocation(
+    program,
+    "vertPosition"
+  );
+  gl.vertexAttribPointer(
+    positionAttributeLocation, //Attribute Location
+    2, //Number of elements per attribute
+    gl.FLOAT, //types of elements
+    gl.FALSE,
+    2 * Float32Array.BYTES_PER_ELEMENT, //size of individual vertex
+    0 // offset from the beginning of a single vertex to this attribute
+  );
+
+  gl.enableVertexAttribArray(positionAttributeLocation);
+
+  //
+  // Main render Loop
+  //
+
+  gl.useProgram(program);
+  gl.drawArrays(gl.TRIANGLES, 0, 3);
 };
