@@ -61,5 +61,19 @@ var initDemo = function () {
     return;
   }
 
-  
+  //
+  //buffer
+  //
+  const triangleVertices = [
+    //X,Y
+    0.0, 0.5, -0.5, -0.5, 0.5, -0.5,
+  ];
+
+  const triangleVertexBufferObject = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexBufferObject);
+  gl.bufferData(
+    gl.ARRAY_BUFFER,
+    new Float32Array(triangleVertices),
+    gl.STATIC_DRAW
+  );
 };
