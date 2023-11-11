@@ -70,7 +70,7 @@ var initDemo = function () {
   //
   const triangleVertices = [
     //X,Y and R,G,B
-    0.0, 0.5, 1.0, 1.0, 0.0, -0.5, 0.5, 0.7, 0.0, 1.0, -0.5, 0.5, 0.1, 1.0, 0.6,
+    0.0, 0.5, 1.0, 1.0, 0.0, -0.5, 0.5, 0.7, 0.0, 1.0, 0.5, -0.5, 0.1, 1.0, 0.6,
   ];
 
   const triangleVertexBufferObject = gl.createBuffer();
